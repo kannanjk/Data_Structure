@@ -1,19 +1,14 @@
 class Node {
-    constructor(value) {
+    constructor(value){
         this.value = value
         this.next = null
     }
 }
 
 class Stack {
-    constructor() {
-        this.first = null
-        this.last = null
-        this.size = 0
-    }
-    push(val) {
+    push(val){
         var newNode = new Node(val)
-        if (!this.first) {
+        if(!this.first){
             this.first = newNode
             this.last = newNode
         } else {
@@ -23,26 +18,27 @@ class Stack {
         }
         return ++this.size
     }
-    pop() {
-        if (!this.first) return null
-        var temp = this.first
-        if (this.first === this.last) {
+    pop(){
+        if(!this.first) return null
+        if(this.first === this.last){
             this.last = null
         }
+        var temp = this.first
         this.first = this.first.next
         this.size--
         return temp.value
     }
 }
 
-const stack = new Stack
-stack.push('1')
-stack.push('2')
-stack.push('3')
+const stck = new Stack()
 
-console.log(stack.first);
-console.log(stack.last);
-console.log(stack.size);
+stck.push("1")
+stck.push("2")
+// stck.push("3")
 
-stack.push("value4")
-console.log(stack.pop());
+console.log(stck.pop()) 
+// stck.push("4")
+console.log(stck.first) 
+
+// console.log(stck.last) 
+// console.log(stck.size) 
